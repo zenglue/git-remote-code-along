@@ -99,3 +99,32 @@ def owner=(owner)
   @owner = owner
   owner.pets << self # reciprocates relationship
 end
+
+#Object Models Review
+
+understand self
+
+instance scope/class scope (@all, @@all) class instance variable
+
+def self.find_by_something(something)
+reslut = object_name = object_name if object_name == something
+
+--last line of code is what is returned
+--iterate through @@all.detect {|somethin| somethin.name == name}
+--@@all.each_with_index |object, i|
+  counter = i if object.something == something
+
+Finders
+--detect/select/find/find_all
+
+def self.create --custom constructor (adds more functionality to initalize, offers flexibility unlike intialize instance)
+x = self.new
+x.save
+x
+end
+
+def self.new_from_hash(hash)
+x = self.new_from_hash
+x.name = hash[:name]
+x
+end
