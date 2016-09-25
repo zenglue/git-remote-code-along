@@ -128,3 +128,32 @@ x = self.new_from_hash
 x.name = hash[:name]
 x
 end
+
+#Object Orientation and Scraping Review
+
+abstraction is about specificty not vagueness
+
+bad idea to name anything class, klass
+
+--Class Custom Constructor allows data sources or logic or environments that leave initialize alone, so it can be bare bones, extends functionality and returns Object.new
+self.new_from_url(url)
+ object = Object.new
+
+ properties = ObjectScraper.new(url)
+ properties.each do {|k,v| animal.send("#{k}=", v)}  --#send calls a method, mass assignment pattern
+ end
+ object
+end
+
+refactored
+
+self.new_from_url(url)
+  Object.newtap do |object|
+    ObjectScraper.url(url) each {|k,v| object.send("#{k}=", v)}
+    end
+  end
+end
+
+self.new_from_database(row)
+  Object.new.tap do |object| --taps into block, and automatically returns Object.new
+end
